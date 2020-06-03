@@ -5,22 +5,29 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar>
+      <NavItem icon ="A"/>
+      <NavItem icon ="B"/>
+      <NavItem icon ="C"/>
+      </Navbar>
     </div>
   );
+}
+
+function Navbar(props){
+  return(
+    <nav className = "navbar">
+      <ul className= "navbar-nav">{props.children}</ul>
+    </nav>
+  )
+}
+
+function NavItem(props){
+  return (<li className = "nav-item">
+    <a href="#" className="icon-button">
+      {props.icon}
+      </a>
+      </li>)
 }
 
 export default App;
