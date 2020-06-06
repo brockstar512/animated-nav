@@ -1,11 +1,11 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background: #151616;
+  font-family: roboto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -14,13 +14,13 @@ code {
 
 /* these are global variables */
 :root{
-  --bg: #242526;
-  --bg-accent:#484a4d;
-  --text-color:#dadce1;
-  --nav-size:60px;
+  --bg:  #242526;
+  --bg-accent: #484a4d;
+  --text-color: #dadce1;
+  --nav-size: 60px;
   --border: 1px solid #474a4d;
-  --border-radius:8px;
-  --speed:500ms;
+  --border-radius: 8px;
+  --speed: 500ms; 
   /* figureing out the animation speed */
 }
 
@@ -37,18 +37,17 @@ a{
 }
 
 .navbar {
-  height:var(--nav-size);
-  background-color:var(--bg);
+  height: var(--nav-size);
+  background-color: var(--bg);
   padding: 0 1rem;
   border-bottom: var(--border);
-  
 }
 
 /* children will inherent the flex */
 .navbar-nav {
-  max-width:100%;
-  height:100%;
-  display:flex;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
   justify-content: flex-end;
   
 }
@@ -56,24 +55,25 @@ a{
 /* calc does math in css we are calvulating it's width dynamically */
 /* we are taking the 60 px nav item and multiplying it by 80% */
 .nav-item{
-  width: calc(var(--nav-size)*0.8);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width: calc(var(--nav-size) * 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
 }
 
 /* this will give us 50% of the nav bar size */
 /* //the border radius will be 50% which will create a perfect circle */
 .icon-button{
-  --button-size: calc(var(--nav-size)*0.5);
+  --button-size: calc(var(--nav-size) * 0.5);
   width: var(--button-size);
   height: var(--button-size);
-  background-color:#484a4d;
-  border-radius:50%;
-  padding:5px;
-  margin:2px;
-  align-items:center;
+  background-color: #484a4d;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
   justify-content: center;
   transition: filter 300ms;
 }
@@ -88,3 +88,41 @@ a{
   width:20px;
   height:20px;
 }
+
+/* position: absolute ...this will let us offset a dropdown from its parent */
+.dropDown {
+  position: absolute;
+  /* we will move the drop down down by 58 px  with will give it a 2 px space because the nav width is 60px*/
+  top:58px;
+  width:300px;
+  /* fixed width of 300 */
+  transform: translateX(-45%);  /* move it over the x axis by 45% */
+  background-color: var(--bg);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  overflow: hidden;
+  transition: height var(--speed) ease;
+  /* this will hide any child elements that overlap the cpntainer */
+  }
+
+  /* these are multpile menu items we will make them flex containers */
+  .menu-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--border-radius);
+    transition: background var(--speed);
+    padding: 0.5rem;
+  }
+      /* when a user hovers ove an item we want to animate the items background color */
+
+
+  .menu-item:hover {
+    background-color: #525357;
+
+  }
+
+  .icon-right{
+    margin-left:auto;
+  }
